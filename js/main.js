@@ -5,8 +5,12 @@ var vm = new Vue({
 
   data: {
 
-    // mock up the user - this well eventually come from the database UMS (user management system)
-
+// mock up the user - this well eventually come from the database UMS (user management system)
+    user: {
+      isAdmin: false,
+      isLoggedIn: false,
+      avatar: "basic_avi.png",
+    },
 
     // this data would also come from the database, but we'll just mock it up for now
     videodata: [
@@ -19,6 +23,22 @@ var vm = new Vue({
   },
 
   methods: {
+
+    logInOut(){
+      //test the login log out UI -> button should change colour
+      //eventually we'll use routing and a login connection
+      console.log('do login / logout on click');
+
+      //? : is a ternary statemend, shorthand for is / else
+      //evaluste the expression, if true then us value to the left of the colon
+      //if false use valuse to the right of the colon.
+      //this -> means THIS FRAMEWORK
+      this.user.isLoggedIn = (this.user.isLoggedIn) ? false : true;
+    },
+
+    setUserPrefs(){
+      console.log('set user prefs via routing and probably a component');
+    }
 
   }
 });
