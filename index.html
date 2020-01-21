@@ -18,11 +18,17 @@
         <h3 class="app-title">My Awesome Video App</h3>
 
         <ul>
+          <!-- Get user name and display in navbar -->
+          <li>
+            <h4>Welcome Back, {{user.fname}} {{user.lname}}</h4>
+          </li>
+
           <!-- avatar / user icon-->
           <!-- if the user has an avatar, show it -->
           <li v-if="user.avatar">
             <img :src="'images/' + user.avatar" alt="user avatar" class="u-avatar">
           </li>
+          
           <!-- else show this -->
           <li v-else>
             <i class="fas fa-user"></i>
@@ -32,7 +38,7 @@
           <!-- settings icon / functionality -->
           <!-- if our user object has admin rights, then show this -->
           <!-- @click handles like an onclick -->
-          <li v-if="user.isAdmin">
+          <li v-if="user.isadmin">
             <i @click="setUserPrefs" class="fas fa-cog" role="button"></i>
           </li>
           <!-- end user settings -->
