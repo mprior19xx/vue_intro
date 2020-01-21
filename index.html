@@ -52,12 +52,12 @@
     </header>
 
     <ul class="video-poster-wrapper">
-      <!-- basically a foreach call -->
-      <li v-for="movie in videodata">
-        <a :href="movie.vidsource" v-on:click.prevent="loadMovie(movie)">
-          <img :src="'images/' + movie.thumb" alt="movie poster">
-        </a>
-      </li>
+      <!-- custom tag thanks to vue - find in main.js view component -->
+        <poster v-for="(movie, index) in videodata" v-on:make-selection="loadMovie"
+          :vidsource ="movie.vidsource"
+          :thumb="movie.thumb"
+          :key="index">
+        </poster>
     </ul>
 
     <p class="instructions">

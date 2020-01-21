@@ -1,4 +1,23 @@
 // todo => use a key to track the current video, or just pass the video in as a ref to the function and grab its source
+Vue.component('poster',{
+  props: {
+    //properties for template
+    vidsource: String,
+    thumb: String,
+
+  },
+
+  template: `
+      <li>
+        <a :href="vidsource" v-on:click.prevent="$emit('make-selection')">
+          <img :src="'images/' + thumb" alt="movie poster">
+        </a>
+      </li>
+  `
+})
+
+
+
 var vm = new Vue({
   el: "#app",
 
@@ -52,7 +71,9 @@ var vm = new Vue({
 
     //this is for the movie posters
     //this is ES6 data destructuring- pull the keys and values you need, not the whole project
-    loadMovie({name, description, vidsource}) {
+    loadMovie() {
+      debugger;
+
       console.log('show me the details');
 
       this.videotitle = name;
