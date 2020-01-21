@@ -5,7 +5,8 @@ var vm = new Vue({
   data: {
 
 // mock up the user - this well eventually come from the database UMS (user management system)
-    user: { //empty object waiting for DB content},
+    user: { //empty object waiting for DB content}, 
+  },
 
     // this data would also come from the database, but we'll just mock it up for now
     videodata: [
@@ -76,8 +77,8 @@ var vm = new Vue({
         this.user = data[0];
         
       })
-      .catch((err) => console.log(err))
-    }
+      .catch((err) => console.log(err));
+    },
 
   }
 });
