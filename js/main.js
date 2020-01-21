@@ -19,6 +19,10 @@ var vm = new Vue({
       { name: "Marvel's The Avengers", thumb: "avengers.jpg", vidsource: "avengers.mp4", description: "will they make black widow action figures this time?" }
     ],
 
+    videotitle: "video title goes here",
+    videodescription: "video description goes here",
+    videosource: "",
+
     showDetails: false
   },
 
@@ -34,10 +38,23 @@ var vm = new Vue({
       //if false use valuse to the right of the colon.
       //this -> means THIS FRAMEWORK
       this.user.isLoggedIn = (this.user.isLoggedIn) ? false : true;
+      this.user.isAdmin = (this.user.isAdmin) ? false : true;
     },
 
     setUserPrefs(){
       console.log('set user prefs via routing and probably a component');
+    },
+
+    //this is for the movie posters
+    //this is ES6 data destructuring- pull the keys and values you need, not the whole project
+    loadMovie({name, description, vidsource}) {
+      console.log('show me the details');
+
+      this.videotitle = name;
+      this.videodescription = description;
+      this.videosource = vidsource;
+
+      this.showDetails = true;
     }
 
   }
